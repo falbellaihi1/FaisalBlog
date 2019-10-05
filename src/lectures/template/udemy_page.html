@@ -16,7 +16,7 @@
       </p>
     </div>
   </section>
-  <div class="album py-5 bg-light">
+  <div class="album py-5  bg-dark">
     <div class="container">
       <div class="row">
         {% for course in object_list %}
@@ -32,7 +32,6 @@
                 <small class="text-muted">{{ course.udemy_course_price }} mins</small>
               </div>
               		 <a class="btn btn-primary" href="{{ course.udemy_course_url }}" class="btn btn-sm btn-outline-secondary">Visit course page</a>
-				  
                </div>
           </div>
         </div>
