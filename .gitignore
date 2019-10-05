@@ -135,4 +135,5 @@ tests/coverage_html/
 tests/.coverage
 build/
 tcl/
+include/
 tests/report/
