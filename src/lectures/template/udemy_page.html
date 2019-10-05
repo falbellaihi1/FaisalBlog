@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{{user.is_authinticated}}
+{% block content %}
+
+<h2> </h2>
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">{{user}} I thought you might be interseted on below courses</h1>
+     
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" aria-label="Username">
+      </div>
+      <p>
+        <a href="#" class="btn btn-primary my-2">Search Udemy</a>
+      </p>
+    </div>
+  </section>
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        {% for course in object_list %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+               <div class="embed-responsive embed-responsive-14by9">
+               <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ course.udemy_course_thum }}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"></img>
+              </div>
+            <div class="card-body">
+              <p class="card-text">{{course.udemy_course_title}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+
+                <small class="text-muted">{{ course.udemy_course_price }} mins</small>
+              </div>
+              		 <a class="btn btn-primary" href="{{ course.udemy_course_url }}" class="btn btn-sm btn-outline-secondary">Visit course page</a>
+				  
+               </div>
+          </div>
+        </div>
+        {% endfor %}
+{% endblock %}
