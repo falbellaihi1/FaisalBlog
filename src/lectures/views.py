@@ -6,6 +6,7 @@ from requests.auth import HTTPBasicAuth
 import base64
 from pyudemy import Udemy
 from .models import Lectures, Youtube
+from django import forms
 import json
 import os
 from django.conf import settings
@@ -16,13 +17,14 @@ from isodate import parse_duration
 
 
 def home_page(request):
+	
 	#obj = Lectures.objects.get(id=50)
 	template_name = 'home_page.html'
 	context = {"title": " "}
 	return render(request, template_name,context)
 
 def about_page(request):
-
+	
 	about_title = "About Page"
 	return render(request, "about.html", {"title": about_title})
 
@@ -141,3 +143,4 @@ def request_youtube():
 				yotube_video_length = int(parse_duration(result['contentDetails']['duration']).total_seconds()//60)
 				,youtube_video_thum_url =  result['snippet']['thumbnails']['high']['url']
 				)
+
