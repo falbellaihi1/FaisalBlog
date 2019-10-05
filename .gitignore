@@ -76,7 +76,7 @@ celerybeat-schedule.*
 
 # SageMath parsed files 
 *.sage.py 
-
+oauth2client.egg-info/
 # Environments 
 .env 
 .venv 
@@ -134,4 +134,5 @@ node_modules/
 tests/coverage_html/
 tests/.coverage
 build/
+tcl/
 tests/report/
