@@ -11,9 +11,6 @@ class Lectures(models.Model):
 	udemy_name = models.TextField(default="falbellaihi")
 	udemy_completion_ratio = models.IntegerField(default=0)
 
-	#enter id manually so i can search for
-	#UDEMY COURSES IN MY PAGE TO PICK FROM
-
 
 	udemy_course_id = models.IntegerField(default=0)
 	udemy_course_title = models.TextField(default="course title")
