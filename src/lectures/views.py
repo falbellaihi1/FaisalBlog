@@ -13,6 +13,7 @@ from django.conf import settings
 from isodate import parse_duration
 import datetime
 from datetime import time
+from django.shortcuts import get_object_or_404
 # Create your views here.
 
 
@@ -111,19 +112,10 @@ def youtube_test(request):
 
 
 def youtube_video_page(request):
-
 	template_name = "youtube_video_page.html"
-	if request == 'POST':
-		print("requested post?")
-	youtube_url  = request.POST['video_url']
-	print(youtube_url)
-	print("this is where we start watching a video")
-	if Youtube.objects.filter(youtube_video_url=youtube_url).exists():
-		print("I found "+ youtube_url)
-		video = Youtube.objects.filter(youtube_video_url=youtube_url)
-	else:
-		print("seems like i didnt find any")
-	context = {'video': video}
+	video_id  = request.POST['video_id']
+	video_obj = get_object_or_404(Youtube, id=video_id)
+	context = {'video': video_obj}
 	return render(request, template_name, context)
 
 def update_seconds_watched():

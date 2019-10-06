@@ -31,7 +31,7 @@ class Lectures(models.Model):
 
 
 class Youtube(models.Model):
-
+	
 	youtube_video_title = models.CharField(default="title",max_length=300)
 	youtube_video_url = models.TextField(default="url")
 	yotube_video_id = models.TextField(default="id")

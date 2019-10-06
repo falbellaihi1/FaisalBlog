@@ -14,7 +14,10 @@ class LectureAdmin(admin.ModelAdmin):
 		model = Lectures
 
 class YotubeAdmin(admin.ModelAdmin):
-	#list_display = ["title"]
+	list_display = [ "id","youtube_video_title","youtube_video_url"]
+	list_display_links = ["youtube_video_url"]
+	list_filter = ["youtube_video_url"]
+	search_fields = ["youtube_video_title","youtube_video_url"]
 	class Meta:
 		model = Youtube
 

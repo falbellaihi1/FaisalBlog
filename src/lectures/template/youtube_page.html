@@ -39,14 +39,14 @@
             <div class="card-body">
               <form method='POST' action='/lectures/video/' >  {% csrf_token %}
               <p class="card-text">{{video.youtube_video_title}}</p>
-                 <input type="hidden" name="video_url" value={{video.youtube_video_url}}>
+                 <input type="hidden" name="video_id" value={{video.id}}>
               <div class="d-flex justify-content-between align-items-center">
                 <small class="text-muted">{{ video.yotube_video_length }} mins</small>
               </div>
               <button type="submit" class="btn btn-primary">
                 Open video
                 <!-- on press this button pass vid info to next page
-                  we have 2 options here : 
+                  we have 2 options here :
                   1- pass all video details to the next view
                   2- pass only the id of the video and retrieve rest from db
 
@@ -57,7 +57,6 @@
 
               </form>
               <!-- TO DO REMOVE COUNTER -->
-             
               <li class="divider"></li>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
