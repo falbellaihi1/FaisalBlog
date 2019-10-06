@@ -14,7 +14,7 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.urls import include, path, re_path
+from django.urls import include, path, re_path, include
 from django.contrib import admin
 from django.views.generic import TemplateView
 #from lectures.views import lecture_home
@@ -27,13 +27,8 @@ from lectures.views import (
     youtube_test
     )
 urlpatterns = [
-    path('',home_page),
-    path('home/',home_page),
-    path('about/',about_page),
-    path('contact/',contact_page),
     path('admin/', admin.site.urls),
-    path('udemy', list_view),
-    path('youtube', youtube_test),
+    path('lectures/', include('lectures.urls')),
     #path('',TemplateView.as_view(template_name='home_page.html')),
 
     #url(r'^lec/$', lecture_home, name='lectures'),

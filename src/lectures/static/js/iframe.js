@@ -1,3 +1,12 @@
+/*
+
+ reference  stackoverflow answer
+
+ https://stackoverflow.com/questions/24646997/getting-current-time-of-embedded-iframe-youtube-player
+
+*/
+
+
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -9,7 +18,6 @@ var checkInt; // save this as a var in this scope so we can clear it later
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('player1', {
-  	
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
@@ -37,13 +45,21 @@ function onPlayerReady() {
 
 function onPlayerStateChange() {
 
-     console.log("my state changed " );
-      console.log("current time is : " + player.getCurrentTime );
-  
+     console.log("my state changed ")
+
+
+     /*
+     TODO:
+     SOMETHING LIKE ->
+     CHECK IF PLAYER.STOPED
+     			REMAINING = DURATION - TCURRENT_TIME
+
+     */
+
 }
 /*
 
-TODO CALCULATE REMAINING VIDEO, AND TIME WATCHED. 
+TODO CALCULATE REMAINING VIDEO, AND TIME WATCHED.
 
 */
 function startInterval() {
