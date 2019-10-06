@@ -1,9 +1,14 @@
 {% extends "base.html" %}
+
+
+
 <!doctype html>
+<h1 class="jumbotron-heading">it seems like I do not know you
+ I do not want to make new friends so please leave!!!</h1>
 {% block content %}
+{% if user.is_authenticated %}
 {% load static %}
 <main role="main">
-
   <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading">{{ user }} What I want from youtube today</h1>
@@ -39,7 +44,7 @@
                 <small class="text-muted">{{ video.yotube_video_length }} mins</small>
               </div>
               <button type="button" class="btn btn-primary" onclick="window.location.href='about/'">
-                Open video
+                Open video 
               </button>
               <!-- TO DO REMOVE COUNTER -->
               {{ forloop.counter }} # starting index 1
@@ -60,5 +65,9 @@
   </div>
 
 </main>
+{% endif %}
 {% endblock %}
+
+
+
 

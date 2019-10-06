@@ -1,8 +1,9 @@
 {% extends "base.html" %}
-{{user.is_authinticated}}
+ <h1 class="jumbotron-heading">it seems like I do not know you
+ I do not want to make new friends so please leave!!!</h1>
 {% block content %}
 
-<h2> </h2>
+{% if user.is_authenticated %}
 
   <section class="jumbotron text-center">
     <div class="container">
@@ -36,4 +37,5 @@
           </div>
         </div>
         {% endfor %}
+  {% endif %}
 {% endblock %}

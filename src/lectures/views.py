@@ -11,20 +11,27 @@ import json
 import os
 from django.conf import settings
 from isodate import parse_duration
+import datetime
+from datetime import time
 # Create your views here.
 
 
+def greet_user():
+	# just for fun!
+	now = time(hour = 11)
 
+	if now <= time(hour = 11) :
+		print( "MORNING!")
+	elif now > time(hour = 11) :
+		print( "AFTERNOON!")
 
 def home_page(request):
-	
 	#obj = Lectures.objects.get(id=50)
 	template_name = 'home_page.html'
 	context = {"title": " "}
 	return render(request, template_name,context)
 
 def about_page(request):
-	
 	about_title = "About Page"
 	return render(request, "about.html", {"title": about_title})
 
@@ -94,6 +101,7 @@ def udemy_courses():
 ### DISPLAY THE LIST OF YOUTUBE VIDEOS 
 def youtube_test(request):
 	#request_youtube()
+	greet_user()
 	videos = Youtube.objects.all()
 	template_name = "youtube_page.html"
 	context = {'videos':videos}
