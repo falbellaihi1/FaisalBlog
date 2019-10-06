@@ -4,7 +4,8 @@ from lectures.views import (
     about_page ,
     contact_page,
     list_view,
-    youtube_test
+    youtube_test, 
+    youtube_video_page
     )
 urlpatterns = [
     path('',home_page),
@@ -13,5 +14,6 @@ urlpatterns = [
     path('contact/',contact_page),
     path('udemy/', list_view),
     path('youtube/', youtube_test),
+    path('video/', youtube_video_page),
 
 ]

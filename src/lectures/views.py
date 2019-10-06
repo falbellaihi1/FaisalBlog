@@ -25,6 +25,9 @@ def greet_user():
 	elif now > time(hour = 11) :
 		print( "AFTERNOON!")
 
+
+
+
 def home_page(request):
 	#obj = Lectures.objects.get(id=50)
 	template_name = 'home_page.html'
@@ -101,13 +104,27 @@ def udemy_courses():
 ### DISPLAY THE LIST OF YOUTUBE VIDEOS 
 def youtube_test(request):
 	#request_youtube()
-	greet_user()
 	videos = Youtube.objects.all()
 	template_name = "youtube_page.html"
 	context = {'videos':videos}
 	return render(request, template_name, context)
 
 
+def youtube_video_page(request):
+
+	template_name = "youtube_video_page.html"
+	if request == 'POST':
+		print("requested post?")
+	youtube_url  = request.POST['video_url']
+	print(youtube_url)
+	print("this is where we start watching a video")
+	if Youtube.objects.filter(youtube_video_url=youtube_url).exists():
+		print("I found "+ youtube_url)
+		video = Youtube.objects.filter(youtube_video_url=youtube_url)
+	else:
+		print("seems like i didnt find any")
+	context = {'video': video}
+	return render(request, template_name, context)
 
 def update_seconds_watched():
 	#TODO 

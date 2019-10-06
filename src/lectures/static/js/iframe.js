@@ -12,20 +12,10 @@ tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-var player1;
-var player2;
-var checkInt; // save this as a var in this scope so we can clear it later
+var player;
 
 function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player1', {
-    events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
-    }
-  });
-
-
-    player2 = new YT.Player('player2', {
+  player = new YT.Player('player', {
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
