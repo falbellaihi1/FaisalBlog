@@ -14,6 +14,8 @@ from isodate import parse_duration
 import datetime
 from datetime import time
 from django.shortcuts import get_object_or_404
+from .forms import VideoForm
+
 # Create your views here.
 
 
@@ -111,12 +113,41 @@ def youtube_test(request):
 	return render(request, template_name, context)
 
 
+
+
 def youtube_video_page(request):
+	ran = 0
+	print(ran)
 	template_name = "youtube_video_page.html"
-	video_id  = request.POST['video_id']
-	video_obj = get_object_or_404(Youtube, id=video_id)
-	context = {'video': video_obj}
-	return render(request, template_name, context)
+	template_404 = "404.html"
+	if request.method == 'GET':
+		print("here :" + request.GET.get('remtime'))
+	if request.method == 'POST':
+		#print( request.POST['remtime'])
+		print(request.POST)
+		video_id  = request.POST['video_id']
+		video_obj = get_object_or_404(Youtube, id=video_id)
+		context = {'video': video_obj}
+		
+		return render(request, template_name, context)
+	else: 
+		return render(request, template_404)
+
+# NOT THE BEST WAY TO DO IT BUT IT WORKS- TO BE CHANGED LATER
+def video_analytics(request):
+	template_name = "analytics.html"
+	about_title = "ABOUT!"
+	if request.method == 'POST':
+		video_id = request.POST['id']
+		video_remaing = request.POST['value']
+		video_obj = get_object_or_404(Youtube,id=video_id)
+		video_obj.youtube_minuts_watched = video_remaing
+		video_obj.save()
+		print("OBJECT = " + video_obj.youtube_minuts_watched)
+
+		print(request.POST['value'])
+	context = {"title": about_title}
+	return render(request,template_name, context)
 
 def update_seconds_watched():
 	#TODO 

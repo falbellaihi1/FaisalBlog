@@ -5,7 +5,8 @@ from lectures.views import (
     contact_page,
     list_view,
     youtube_test, 
-    youtube_video_page
+    youtube_video_page, 
+    video_analytics
     )
 urlpatterns = [
     path('',home_page),
@@ -15,5 +16,6 @@ urlpatterns = [
     path('udemy/', list_view),
     path('youtube/', youtube_test),
     path('video/', youtube_video_page),
+    path('analytics/', video_analytics),
 
 ]
