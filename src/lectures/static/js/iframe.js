@@ -37,7 +37,8 @@ function onPlayerReady(event) {
   //console.log("hey Im ready");
   event.target.setVolume(100);
   event.target.playVideo();
-
+  event.start()
+  
   //do whatever you want here. Like, player.playVideo();
 
 }
@@ -45,8 +46,8 @@ function onPlayerReady(event) {
 
 // did vid state changed? 
 function onPlayerStateChange(event) {
-
- 
+  
+  // disable ability to seek
   switch(event.data) {
   case YT.PlayerState.ENDED:
   console.log("ENDED");
@@ -94,6 +95,14 @@ function stopVideo() {
 }
 
 
+function PrepareVideo()
+{
+  if(player.isMuted()){
+    player.unMute();
+  }
+
+}
+
 //update every 3 seconds
 function update() {
   setInterval(
@@ -106,8 +115,17 @@ function update() {
 
       remainingTime = Math.round(parseInt(videoDuration - videoCurrentTime) / 60);
       //todo remove log
+       // player.seekTo(videoCurrentTime,false) does not work! its totally wrong to do it this way!
+      var percRem = player.getCurrentTime()/ player.getDuration() *100
+     document.getElementsByClassName("progress-bar").item(0).setAttribute('aria-valuenow',percRem);
+     document.getElementsByClassName('progress-bar').item(0).setAttribute('stylele','width:'+percRem+'%');
+     console.log(parseInt(percRem))
 
-
+     $(".progress-bar").animate({
+    width: parseInt(percRem) + "%"
+    }, 1);
+   
+      //setStyle(percRem);
      //console.log("here i am " + remainingTime);
       document.getElementById("remtime").value = remainingTime
       var doc = document.getElementById("remtime").value ;

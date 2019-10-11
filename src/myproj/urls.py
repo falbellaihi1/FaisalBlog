@@ -19,13 +19,7 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 #from lectures.views import lecture_home
 #app_name = 'lectures'
-from lectures.views import (
-    home_page,
-    about_page ,
-    contact_page,
-    list_view,
-    youtube_test
-    )
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('lectures/', include('lectures.urls')),

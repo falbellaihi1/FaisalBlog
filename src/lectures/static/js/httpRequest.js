@@ -26,11 +26,11 @@ function PostVideoData() {
 //TODO change address (url) 
 var saveData = $.ajax({
       type: "POST",
-      url: "http://127.0.0.1:8000/lectures/analytics/",
-      data: {"value": input, "id" : video_id},
+      url: "http://127.0.0.1:8000/lectures/video/",
+      data: {"value": input, "video_id" : video_id},
       dataType: "text",
       success: function(resultData){
-          //alert("Save Complete " + resultData);
+        
       }
 });
 
