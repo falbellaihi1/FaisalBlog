@@ -39,6 +39,7 @@ class Youtube(models.Model):
 	yotube_video_length = models.IntegerField(default=0)
 	youtube_minuts_watched = models.IntegerField(default=0)
 	youtube_video_description = models.TextField(default="UNKNWN")
+	youtube_percentage_completed = models.IntegerField(default=0)
 
 
 

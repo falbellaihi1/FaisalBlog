@@ -42,6 +42,7 @@
                  <input type="hidden" name="video_id" value={{video.id}}>
               <div class="d-flex justify-content-between align-items-center">
                 <small class="text-muted">{{ video.yotube_video_length }} mins</small>
+                <small class="text-muted">Remining Time to watch :{{ video.youtube_minuts_watched }} mins</small>
               </div>
               <button type="submit" class="btn btn-primary">
                 Open video
@@ -50,6 +51,11 @@
                   1- pass all video details to the next view
                   2- pass only the id of the video and retrieve rest from db
 
+                  FOR PROGRESS BAR:- 
+                     <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+              <script> // TODO PROGRESS OF EACH VIDEO
+            $(".progress-bar").animate({width: parseInt(100) + "%"}, 1);
+              </script>
 
 
                 -->
@@ -58,8 +64,9 @@
               </form>
               <!-- TO DO REMOVE COUNTER -->
               <li class="divider"></li>
+           
               <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
           </div>

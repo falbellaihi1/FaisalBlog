@@ -14,7 +14,7 @@ from isodate import parse_duration
 import datetime
 from datetime import time
 from django.shortcuts import get_object_or_404
-from .forms import VideoForm
+
 from django.views.generic import TemplateView
 
 # Create your views here.
@@ -32,6 +32,11 @@ class YoutubeAnalytics(TemplateView):
 				video_remining = request.POST['value']
 				video_obj.youtube_minuts_watched = video_remining
 				video_obj.save()
+				#TODO COMPLETION PERCENTAGE VARIABLE
+				#DIVES THE DUR OF VIDEO WITH THE MIN WATCHED 
+				# TURNS IT INTO PERCANTAGE AND THEN PROGRESS BAR CHANGES FOR EACH VIDEO
+			
+				
 			context = {'video': video_obj}
 			return render(request, self.template_name, context)
 		else:

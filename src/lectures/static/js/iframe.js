@@ -113,14 +113,15 @@ function update() {
       videoDuration = player.getDuration();
       //get the remining time and round it up + convert to mins 
 
-      remainingTime = Math.round(parseInt(videoDuration - videoCurrentTime) / 60);
+      remainingTime = Math.floor(parseInt(videoDuration - videoCurrentTime) / 60);
       //todo remove log
        // player.seekTo(videoCurrentTime,false) does not work! its totally wrong to do it this way!
       var percRem = player.getCurrentTime()/ player.getDuration() *100
      document.getElementsByClassName("progress-bar").item(0).setAttribute('aria-valuenow',percRem);
      document.getElementsByClassName('progress-bar').item(0).setAttribute('stylele','width:'+percRem+'%');
      console.log(parseInt(percRem))
-
+     //var iwatched = Math.floor(parseInt(player.getCurrentTime())/60)
+     //console.log("i watched this amount of the video :" +iwatched)
      $(".progress-bar").animate({
     width: parseInt(percRem) + "%"
     }, 1);
