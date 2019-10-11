@@ -35,8 +35,7 @@ class YoutubeAnalytics(TemplateView):
 				#TODO COMPLETION PERCENTAGE VARIABLE
 				#DIVES THE DUR OF VIDEO WITH THE MIN WATCHED 
 				# TURNS IT INTO PERCANTAGE AND THEN PROGRESS BAR CHANGES FOR EACH VIDEO
-			
-				
+
 			context = {'video': video_obj}
 			return render(request, self.template_name, context)
 		else:
