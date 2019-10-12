@@ -42,4 +42,3 @@ class Youtube(models.Model):
 	youtube_percentage_completed = models.IntegerField(default=0)
 
 
-

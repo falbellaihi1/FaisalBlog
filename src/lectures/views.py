@@ -131,9 +131,6 @@ class UdemyCoursePage(TemplateView):
 
 
 
-
-
-
 def greet_user():
 	# just for fun!
 	now = time(hour = 11)

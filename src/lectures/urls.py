@@ -4,6 +4,7 @@ from lectures.views import (
     UdemyCoursePage,
     YoutubePage,
     YoutubeAnalytics,
+
     )
 
 urlpatterns = [
@@ -12,5 +13,7 @@ urlpatterns = [
     path('udemy/', UdemyCoursePage.as_view()),
     path('youtube/', YoutubePage.as_view()),
     path('video/', YoutubeAnalytics.as_view()),
+
+
 
 ]
