@@ -1,5 +1,5 @@
 # FaisalBlog
-
+just useless project I created while having nothing to do... req.txt file is lost :) 
 install Django
 <code> pip install Django</code>
 
